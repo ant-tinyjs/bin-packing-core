@@ -5,6 +5,7 @@ export interface IGeneticOptions {
     size: number;
     findPosition: FindPosition;
     liveRate: number;
+    allowRotate: boolean;
 }
 interface IPoint {
     x: number;
@@ -16,6 +17,7 @@ export declare class Genetic {
     private size;
     private findPosition;
     private liveRate;
+    private allowRotate;
     private totalSquares;
     private maxHeight;
     private maxWidth;
