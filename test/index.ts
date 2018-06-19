@@ -1,3 +1,4 @@
+//tslint:disable
 import fs from 'fs';
 import path from 'path';
 import genetic from './../src/genetic';
