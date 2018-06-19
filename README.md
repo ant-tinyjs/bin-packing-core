@@ -74,7 +74,7 @@ for(const rect of rects){
 const rects: Rect[] = [];
 const rectsCopy = rects.map($=>$.clone());// js引用传递，这里直接操纵了传入的数组，所以传入一份clone的。
 const result = packer.insertRects(rectsCopy, findPosition);
-if(result.length!==rects.length){ // 插入失败，因为容器大小不足
+if(result.length!==rects.length){ // 插入失败，因为容器大小不足
   throw new Error('insert failed');
 }else{ //插入成功
   result.forEach(rect => {
