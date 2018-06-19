@@ -10,7 +10,7 @@
       "es5",
       "es6"
     ],
-    "module": "commonjs",
+    "module": "umd",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitThis": true,

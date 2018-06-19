@@ -1,8 +1,8 @@
-var FindPosition = require('./../lib/index').default.FindPosition;
-var Genetic = require('./../lib/index').default.Genetic;
-var genetic = require('./../lib/index').default.genetic;
-var MaxRectBinPack = require('./../lib/index').default.MaxRectBinPack;
-var Rect = require('./../lib/index').default.Rect;
+var FindPosition = require('./../lib/index').FindPosition;
+var Genetic = require('./../lib/index').Genetic;
+var genetic = require('./../lib/index').genetic;
+var MaxRectBinPack = require('./../lib/index').MaxRectBinPack;
+var Rect = require('./../lib/index').Rect;
 const rects = [];
 
 for (var i = 0; i < 10; i++) {
