@@ -49,7 +49,7 @@ rect.width = 90;
 rect.height = 90;
 ```
 
-3.  `max-rect-bin-pack` 调用
+3. `max-rect-bin-pack` 调用
 
 ```javascript
 import { MaxRectBinPack, Rect } from 'name';
