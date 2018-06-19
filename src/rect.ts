@@ -16,7 +16,7 @@ class Rect {
    */
   public height: number = 0;
   /**
-   * 是否被旋转了
+   * 当前是否被旋转了
    */
   public isRotated: boolean = false;
   /**

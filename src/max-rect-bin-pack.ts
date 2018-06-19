@@ -111,7 +111,7 @@ class MaxRectBinPack {
     if (newRect.height === 0) {
       return newRect;
     }
-    if (this.allowRotate) {
+    if (this.allowRotate) { // 更新旋转属性
       if (newRect.height === height && newRect.width === width) {
         newRect.isRotated = false;
       } else {
