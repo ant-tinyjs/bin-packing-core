@@ -6,6 +6,7 @@ export interface IGeneticOptions {
   size: number;
   findPosition: FindPosition;
   liveRate: number;
+  allowRotate: boolean;
 }
 
 interface IPoint {
@@ -25,6 +26,7 @@ export class Genetic {
   private size: number;
   private findPosition: FindPosition;
   private liveRate: number;
+  private allowRotate: boolean;
 
   private totalSquares: number = 0;
   private maxHeight: number = -1;
@@ -50,6 +52,7 @@ export class Genetic {
       this.liveRate = 0.5;
     }
     this.findPosition = options.findPosition;
+    this.allowRotate = options.allowRotate === true ? true : false;
   }
   public calc(): IPoint {
     this.open();
@@ -78,7 +81,7 @@ export class Genetic {
       const generation: ICalResult[] = [];
       for (const dot of this.randomDots) {
         // 生活
-        const binPack = new MaxRectBinPack(dot.x, dot.y, true);
+        const binPack = new MaxRectBinPack(dot.x, dot.y, this.allowRotate);
         const clonedRects = this.getRects();
         const result = binPack.insertRects(clonedRects, this.findPosition);
         generation.push({

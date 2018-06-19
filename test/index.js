@@ -3,19 +3,8 @@ var Genetic = require('./../lib/index').Genetic;
 var genetic = require('./../lib/index').genetic;
 var MaxRectBinPack = require('./../lib/index').MaxRectBinPack;
 var Rect = require('./../lib/index').Rect;
-const rects = [];
 
-for (var i = 0; i < 10; i++) {
-  var r = new Rect();
-  r.width = (i + 1) * 10;
-  r.height = (i + 1) * 11;
-  r.info = {
-    width: r.width,
-    height: r.height,
-    id: i,
-  };
-  rects.push(r);
-}
+
 
 const findPosition = 0; // 参照第一条
 

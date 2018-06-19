@@ -100,11 +100,12 @@ const bestSize = genetic(rects, { // 遗传算法确定最优策略
   lifeTimes: 50, // 代数
   liveRate: 0.5, // 存活率
   size: 50, // 每一代孩子个数
+  allowRotate: false,// 不支持旋转
 });
 
 const width = bestSize.x;
 const height = bestSize.y;
-const packer = new MaxRectBinPack(width, height, true);
+const packer = new MaxRectBinPack(width, height, false);//不支持旋转
 const result = packer.insertRects(rects, findPosition);
 console.log(result.length === /* rects.length */);
 ```
