@@ -108,3 +108,4 @@ console.log(result.length === /* rects.length */);
 ## TODO
 
 - [ ] 基因编码策略升级
+- [ ] 返回结果优化
