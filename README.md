@@ -45,8 +45,12 @@ enum FindPosition {
 
 ```javascript
 const rect = new Rect();
-rect.width = 90;
-rect.height = 90;
+rect.width = 90; // 宽度
+rect.height = 90; // 高度
+rect.x;// x 坐标
+rect.y;// y 坐标
+rect.isRotated; // 是否被旋转了
+rect.info; // 开发者自行写入一些属性，可以在返回值中拿到（基于浅拷贝）
 ```
 
 3. `max-rect-bin-pack` 调用

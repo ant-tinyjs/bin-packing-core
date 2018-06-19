@@ -111,7 +111,14 @@ class MaxRectBinPack {
     if (newRect.height === 0) {
       return newRect;
     }
-
+    if (this.allowRotate) {
+      if (newRect.height === height && newRect.width === width) {
+        newRect.isRotated = false;
+      } else {
+        // TODO: check is really rotated
+        newRect.isRotated = true;
+      }
+    }
     this.placeRectangle(newRect);
     return newRect;
   }
@@ -121,6 +128,15 @@ class MaxRectBinPack {
    * @param method {FindPosition} 查找位置的方法
    */
   public insertRects(rects: Rect[], method: FindPosition): Rect[] {
+    // rects 参数合法性检查
+    if (rects && rects.length === 0) {
+      throw new Error('rects should be array with length greater than zero');
+    }
+    // method 合法性检查
+    if (method <= FindPosition.ShortSideFit || method >= FindPosition.AreaFit) {
+      method = FindPosition.ShortSideFit;
+    }
+
     const result: Rect[] = [];
     while (rects.length > 0) {
       const bestScore1: IScoreCounter = {
@@ -162,6 +178,18 @@ class MaxRectBinPack {
         return result;
       }
       this.placeRectangle(bestNode);
+
+      bestNode.info = rects[bestRectIndex].info;
+      if (this.allowRotate) {
+        if (
+          bestNode.height === rects[bestRectIndex].height &&
+          bestNode.width === rects[bestRectIndex].width
+        ) {
+          bestNode.isRotated = false;
+        } else {
+          bestNode.isRotated = true;
+        }
+      }
 
       rects.splice(bestRectIndex, 1);
 

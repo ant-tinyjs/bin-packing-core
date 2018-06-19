@@ -9,6 +9,11 @@ for (var i = 0; i < 10; i++) {
   var r = new Rect();
   r.width = (i + 1) * 10;
   r.height = (i + 1) * 11;
+  r.info = {
+    width: r.width,
+    height: r.height,
+    id: i,
+  };
   rects.push(r);
 }
 

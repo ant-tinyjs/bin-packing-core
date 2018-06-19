@@ -16,6 +16,14 @@ class Rect {
    */
   public height: number = 0;
   /**
+   * 是否被旋转了
+   */
+  public isRotated: boolean = false;
+  /**
+   * 自定义信息
+   */
+  public info: any;
+  /**
    * 克隆
    */
   public clone(): Rect {
@@ -24,6 +32,7 @@ class Rect {
     cloned.y = this.y;
     cloned.height = this.height;
     cloned.width = this.width;
+    cloned.info = this.info;
     return cloned;
   }
   /**
