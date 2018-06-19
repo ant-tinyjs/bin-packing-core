@@ -29,7 +29,7 @@
 
 1.  FindPosition
 
-寻找  矩形位置的五种策略。
+寻找矩形位置的五种策略。
 
 ```typescript
 enum FindPosition {
@@ -56,7 +56,7 @@ import { MaxRectBinPack, Rect } from 'name';
 const width = 200;
 const height = 200;
 const allowRotate = true;
-const packer = MaxRectBinPack(width, height, allowRotate);
+const packer = MaxRectBinPack(width, height, allowRotate);
 
 const findPosition = 0; // 参照第一条
 
@@ -107,5 +107,5 @@ console.log(result.length === /* rects.length */);
 
 ## TODO
 
-- [ ] 基因编码策略升级
+- [ ] 基因编码策略升级
 - [ ] 返回结果优化
