@@ -110,8 +110,27 @@ const result = packer.insertRects(rects, findPosition);
 console.log(result.length === /* rects.length */);
 ```
 
+5. `搜索算法`
+
+```typescript
+/**
+ * 初始化
+ * @param rects 要插入的矩形数组
+ * @param allowRotate 是否旋转
+ * @param step 搜索步长 建议10
+ * @param findPosition FindPostion 策略
+ * @param rate 大于一的比率 等于1不可以的
+ */
+const serach = new Search(rects, false, 10, 0, 1.1);
+const bestNode = serach.search();
+
+console.log(bestNode);
+const packer = new MaxRectBinPack(bestNode.x, bestNode.y, false);
+const result = packer.insertRects(rects, FindPosition.AreaFit);
+```
+
 ## TODO
 
 - [ ] 基因编码策略升级
 - [ ] 返回结果优化
-- [ ] 提升算法稳定性，回归点有多个的时候会出现回归到次点的情况
+- [X] 提升算法稳定性，回归点有多个的时候会出现回归到次点的情况

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <canvas id="c" width="2000" height="2000"></canvas>
+  <canvas id="c" width="6000" height="6000"></canvas>
   <script src="./data.js"></script>
   <script>
     var c = document.getElementById("c");
@@ -17,12 +17,12 @@
     function drawRect(rect) {
       // Red rectangle
       ctx.beginPath();
-      ctx.lineWidth = "1";
+      ctx.lineWidth = "5";
       ctx.strokeStyle = "red";
       ctx.rect(rect.x, rect.y, rect.width, rect.height);
       ctx.stroke();
     }
-    drawRect({ x: 0, y: 0, height: 2000, width: 2000 });
+    drawRect({ x: 0, y: 0, height: 6000, width: 6000 });
     for (var i of data) {
       drawRect(i);
     }

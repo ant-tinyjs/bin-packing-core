@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/echarts@4.1.0/dist/echarts.js" ></script>
+  <script src="./echarts-gl.min.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 6000px;height:6000px;"></div>
+  <script src="./data.js"></script>
+  <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var d = [['x','y','z']];
+    data.forEach($=>{
+      d.push([$.width,$.height,$.op]);
+    });
+    // 指定图表的配置项和数据
+    var symbolSize = 2.5;
+    var option = {
+        grid3D: {},
+        xAxis3D: {
+            type: 'category'
+        },
+        yAxis3D: {},
+        zAxis3D: {},
+        dataset: {
+            dimensions: [
+                'x',
+                'y',
+                'z'
+            ],
+            source: d
+        },
+        series: [
+            {
+                type: 'scatter3D',
+                symbolSize: symbolSize,
+                encode: {
+                    x: 'x',
+                    y: 'y',
+                    z: 'z',
+                    tooltip: [0, 1, 2, 3, 4]
+                }
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>
