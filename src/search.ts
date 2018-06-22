@@ -77,28 +77,23 @@ export class Search {
     return { x: bestResult.width, y: bestResult.height };
   }
   public bestHeight(width: number): [number, number] {
-    const left = Math.max(this.minHeight, width / this.rate);
+    let left = Math.max(this.minHeight, width / this.rate);
     let right = Math.min(this.maxHeight, width * this.rate);
     let bestResult = 0;
     let mid = 0;
     let bestHeight = 0;
-    while (right - left > this.step) {
+    while (right - left >= this.step) {
       mid = (right + left) / 2;
-      const [rightResult, rop] = this.getInsertResult(width, mid + this.step);
-      const [leftResult, lop] = this.getInsertResult(width, mid - this.step);
-      if (rightResult.length === this.rects.length) {
-        const op = rop;
+      const [result, op] = this.getInsertResult(width, mid);
+      const isSuccess = result.length === this.rects.length;
+      if (isSuccess) {
         if (op > bestResult) {
           bestResult = op;
-          bestHeight = mid + this.step;
+          bestHeight = mid;
         }
-      } else {
-        return [0, 0];
-      }
-      if (leftResult.length === this.rects.length) {
-        return [mid - this.step, lop];
-      } else {
         right = mid;
+      } else {
+        left = mid;
       }
     }
     return [bestHeight, bestResult];
