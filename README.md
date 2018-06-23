@@ -2,6 +2,14 @@
 
 **keywords:** `bin-pack` `image-pack` `max-rect` `genetic` `typescript` `javascript` `node.js` `image-resource` `ai`
 
+## 应用场景
+
+前端资源中经常需要将所有的小图合成大图，如何将合成大图的图片压缩到最小，就是本算法要解决的问题。
+
+使用本算法可以有效减小图片的`解析时长`和`内存占用`。
+
+基于目前亿级PV项目验证，可以减小10%～30%的内存占用。
+
 ## 算法
 
 **算法分为两层**
