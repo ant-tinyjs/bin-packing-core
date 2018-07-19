@@ -31,13 +31,7 @@ export class Search {
    * @param findPosition FindPostion 策略
    * @param rate 大于一的比率 等于1不可以的
    */
-  constructor(
-    rects: Rect[],
-    allowRotate: boolean,
-    step: number,
-    findPosition: FindPosition,
-    rate: number,
-  ) {
+  constructor(rects: Rect[], allowRotate: boolean, step: number, findPosition: FindPosition, rate: number) {
     this.rects = rects;
     this.allowRotate = allowRotate === true;
     this.step = step ? step : 1;
@@ -51,10 +45,10 @@ export class Search {
     }, 0);
     this.maxWidth = this.rects.reduce((i, v) => {
       return i + v.width;
-    }, 0);
+    }, 1); // 防止刚好踩到临界点情况
     this.maxHeight = this.rects.reduce((i, v) => {
       return i + v.height;
-    }, 0);
+    }, 1); // 防止刚好踩到临界点情况
   }
   public search(): IPoint {
     const bestResult = {
@@ -62,11 +56,7 @@ export class Search {
       op: 0,
       width: 0,
     };
-    for (
-      let searchWidth = this.minWidth;
-      searchWidth < this.maxWidth;
-      searchWidth += this.step
-    ) {
+    for (let searchWidth = this.minWidth; searchWidth <= this.maxWidth; searchWidth += this.step) {
       const [height, op] = this.bestHeight(searchWidth);
       if (op > bestResult.op) {
         bestResult.width = searchWidth;

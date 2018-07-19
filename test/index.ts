@@ -8,36 +8,47 @@ import { Search } from './../src/search';
 
 const rects: Rect[] = [];
 
-const r = require('./rects.json');
+// const r = require('./rects.json');
 
-r.forEach(($: any) => {
-  var rect = new Rect();
-  rect.width = $.width;
-  rect.height = $.height;
-  rect.info = {};
-  rect.info.width = $.width;
-  rect.info.height = $.height;
-  rects.push(rect);
-});
+// r.forEach(($: any) => {
+//   var rect = new Rect();
+//   rect.width = $.width;
+//   rect.height = $.height;
+//   rect.info = {};
+//   rect.info.width = $.width;
+//   rect.info.height = $.height;
+//   rects.push(rect);
+// });
+
+var rect1 = new Rect();
+rect1.width = 485;
+rect1.height = 869;
+rects.push(rect1);
+
+var rect2 = new Rect();
+rect2.width = 96;
+rect2.height = 104;
+rects.push(rect2);
 
 // function getRects() {
 //   return rects.map($ => $.clone());
 // }
 
-// const maxWidth = rects.reduce(($, $$) => $ + $$.width, 0);
-// const maxHeight = rects.reduce(($, $$) => $ + $$.height, 0);
-
-// const step = 10;
+// let maxWidth = rects.reduce(($, $$) => $ + $$.width, 0);
+// let maxHeight = rects.reduce(($, $$) => $ + $$.height, 0);
+// debugger;
+// const step = 1;
 // const result = [];
-// for (let currentWidth = 0; currentWidth < maxWidth; currentWidth += step) {
+// for (let currentWidth = 0; currentWidth <= maxWidth; currentWidth += step) {
 //   for (
 //     let currentHeight = 0;
-//     currentHeight < maxHeight;
+//     currentHeight <= maxHeight;
 //     currentHeight += step
 //   ) {
 //     const packer = new MaxRectBinPack(currentWidth, currentHeight, false);
 //     const inserts = packer.insertRects(getRects(), 0);
-//     if (inserts.length === r.length) {
+//     if (inserts.length === 2) {
+//       console.log(currentWidth, currentHeight);
 //       result.push({
 //         width: currentWidth,
 //         height: currentHeight,
@@ -53,7 +64,7 @@ r.forEach(($: any) => {
 //     flag: 'w+',
 //   },
 // );
-
+// debugger;
 const serach = new Search(rects, false, 1, 0, Infinity);
 const bestNode = serach.search();
 
