@@ -65,7 +65,7 @@ rects.push(rect2);
 //   },
 // );
 // debugger;
-const serach = new Search(rects, false, 1, 0, Infinity);
+const serach = new Search(rects, false, 10, 0, Infinity);
 const bestNode = serach.search();
 
 console.log(bestNode);

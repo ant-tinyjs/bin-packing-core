@@ -45,10 +45,10 @@ export class Search {
     }, 0);
     this.maxWidth = this.rects.reduce((i, v) => {
       return i + v.width;
-    }, 1); // 防止刚好踩到临界点情况
+    }, this.step + 1); // 防止刚好踩到临界点情况
     this.maxHeight = this.rects.reduce((i, v) => {
       return i + v.height;
-    }, 1); // 防止刚好踩到临界点情况
+    }, this.step + 1); // 防止刚好踩到临界点情况
   }
   public search(): IPoint {
     const bestResult = {
@@ -73,7 +73,7 @@ export class Search {
     let mid = 0;
     let bestHeight = 0;
     while (right - left >= this.step) {
-      mid = (right + left) / 2;
+      mid = Math.ceil((right + left) / 2);
       const [result, op] = this.getInsertResult(width, mid);
       const isSuccess = result.length === this.rects.length;
       if (isSuccess) {
