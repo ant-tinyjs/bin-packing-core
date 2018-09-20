@@ -1,6 +1,6 @@
 {
   "name": "bin-packing-core",
-  "version": "0.2.0-beta01",
+  "version": "0.2.0-beta02",
   "description": "image packer based on genetic & max-rect algorithm",
   "main": "lib/index.js",
   "module": "esm/index.js",
