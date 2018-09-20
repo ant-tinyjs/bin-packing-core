@@ -61,3 +61,7 @@ typings/
 .next
 
 .vscode/
+
+esm
+
+lib
